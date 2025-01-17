@@ -1,9 +1,11 @@
+<?php
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barre de navigation</title>
+    <title>Nos Médicaments</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,6 +24,20 @@
         </ul>
     </nav>
 
+    <h2>Liste des produits</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Date d'approbation</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const menuToggle = document.querySelector('.menu-toggle');
@@ -36,7 +52,29 @@
                 document.body.classList.toggle('dark-mode');
                 document.querySelector('nav').classList.toggle('dark-mode');
             });
+
+            function fetchMeds() {
+                fetch('https://www.ZombieMedoc.fr/api/medicaments')
+                    .then(response => response.json())
+                    .then(data => {
+                        const tableBody = document.querySelector('table tbody');
+                        data.forEach(med => {
+                            const row = document.createElement('tr');
+                            row.innerHTML = `
+                                <td>${med.nom}</td>
+                                <td>${med.description}</td>
+                                <td>${med.date_approbation}</td>
+                            `;
+                            tableBody.appendChild(row);
+                        });
+                    })
+                    .catch(error => console.error('Erreur lors de la récupération des médicaments:', error));
+            }
+
+            fetchMeds();
         });
     </script>
 </body>
 </html>
+
+
