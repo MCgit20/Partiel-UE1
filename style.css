@@ -1,0 +1,132 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+nav {
+    background-color: rgb(67, 67, 130);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+.logo h1 {
+    margin: 0;
+    color: white;
+}
+.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+    
+.menu li {
+    display: inline;
+    
+}
+    
+.menu a {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    
+}
+   
+.menu a:hover {
+    background-color: white;
+    background-color: rgb(67, 67, 130);
+}
+.menu-toggle {
+    display: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    
+}
+
+body.dark-mode {
+    background-color: black;
+    color: rgb(255, 255, 255);
+}
+
+nav.dark-mode {
+    background-color: black;
+}
+
+nav.dark-mode .menu a {
+    color: rgb(255, 255, 255);
+}
+
+nav.dark-mode .menu a:hover {
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+
+body.dark-mode {
+    background-color: black;
+    color: rgb(17, 0, 255);
+}
+
+nav.dark-mode {
+    background-color: black;
+}
+
+nav.dark-mode .menu a {
+    color: rgb(255, 255, 255);
+}
+
+nav.dark-mode .menu a:hover {
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+
+@media (max-width: 768px) {
+    .menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background-color: rgb(67, 67, 130);
+    width: 100%;
+    }
+    .menu li {
+    margin: 10px 0;
+    text-align: center;
+    }
+    .menu a {
+    display: block;
+    padding: 10px 0;
+    }
+    .menu.active {
+        display: flex;
+        }
+    .menu-toggle {
+        display: block;
+        }
+    }
